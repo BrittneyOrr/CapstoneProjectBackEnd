@@ -2,7 +2,7 @@ const client = require("./client");
 
 // const { createUser, createMovie, createReview } = require("./");
 const { createReview } = require("./reviews");
-const { createUser } = require("./users");
+// const { createUser } = require("./users");
 const { createMovie } = require("./movies");
 // drop all tables if any exist
 async function dropTables() {
@@ -44,7 +44,6 @@ async function createTables() {
             title TEXT,
             release_date DATE,
             category TEXT,
-            description TEXT,
             poster_url TEXT,
             plot TEXT
           );
@@ -94,8 +93,8 @@ async function createInitialUsers() {
         password: "glamgal123"
       }
     ];
-    const users = await Promise.all(usersToCreate.map(createUser));
-    console.log(users);
+    // const users = await Promise.all(usersToCreate.map(createUser));
+    // console.log(users);
     console.log("Finished creating users!");
   } catch (error) {
     console.error("Error creating users!");
