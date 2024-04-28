@@ -1,9 +1,9 @@
 const client = require("./client");
-// const util = require("util");
+const util = require("util");
 
 // database functions
 // get all movies
-async function getAllmovies() {
+async function getAllMovies() {
   try {
     const { rows } = await client.query(`
         SELECT *
@@ -34,26 +34,6 @@ async function getMovieById(movieId) {
   }
 }
 
-// // get movie price by id
-// async function getmoviePriceById(movieId) {
-//   try {
-//     const {
-//       rows: [movie]
-//     } = await client.query(
-//       `
-//         SELECT price
-//         FROM movies
-//         WHERE id = $1;
-//         `,
-//       [movieId]
-//     );
-//     return movie.price;
-//   } catch (error) {
-//     throw error;
-//   }
-// }
-
-// create new movie requires color, description, size, price
 async function createMovie({
   title,
   category,
@@ -88,7 +68,6 @@ async function updateMovieById(movieId, fields = {}) {
   const setString = Object.keys(fields)
     .map((key, index) => `"${key}"=$${index + 1}`)
     .join(", ");
-
   // return early if this is called without fields
   if (setString.length === 0) {
     return;
@@ -106,24 +85,34 @@ async function updateMovieById(movieId, fields = {}) {
         `,
       Object.values(fields)
     );
-
+    
     return movie;
   } catch (error) {
     throw error;
   }
 }
-
 // delete movie by id
 async function deleteMovieById(movieId) {
   try {
+    // Check for related reviews and delete them
+    await client.query(
+      `
+      DELETE FROM reviews
+      WHERE movie_id = $1;
+      `,
+      [movieId]
+    );
+
+    // Delete the movie after handling related reviews
     const {
       rows: [movie]
     } = await client.query(
       `
-        DELETE FROM movies
-        WHERE id=$1
-        RETURNING *;
-        `,
+      DELETE FROM movies
+      WHERE id = $1
+      RETURNING *;
+      `,
+
       [movieId]
     );
     return movie;
@@ -132,24 +121,43 @@ async function deleteMovieById(movieId) {
   }
 }
 
-// delete all movies
-async function deleteAllmovies() {
-  try {
-    const { rows } = await client.query(`
-        DELETE FROM movies;
-        `);
-    return rows;
-  } catch (error) {
-    throw error;
-  }
-}
+// // delete movie by id
+// async function deleteMovieById(movieId) {
+//   try {
+//     const {
+//       rows: [movie]
+//     } = await client.query(
+//       `
+//         DELETE FROM movies
+//         WHERE id=$1
+//         RETURNING *;
+//         `,
+//       [movieId]
+//     );
+//     return movie;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
+// // delete all movies
+// async function deleteAllMovies() {
+//   try {
+//     const { rows } = await client.query(`
+//         DELETE FROM movies;
+//         `);
+//     return rows;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 // export functions
 module.exports = {
-  getAllmovies,
+  getAllMovies,
   getMovieById,
   createMovie,
   updateMovieById,
   deleteMovieById,
-  deleteAllmovies
+  // deleteAllMovies
 };
