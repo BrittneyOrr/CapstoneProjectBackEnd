@@ -40,7 +40,7 @@ router.post("/register", async function (request, response, next) {
     console.log("error in register endpoint", error);
     next(error);
   }
-}); // <- Added closing brace here
+}); 
 
 // POST /api/users/login
 // IMPLEMENT THE LOGIN ROUTE

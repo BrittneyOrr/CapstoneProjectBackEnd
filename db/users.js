@@ -6,7 +6,6 @@ const SALT_COUNT = 10;
 
 // // user functions
 async function createUser({ email, username, password }) {
-  
   const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
   try {
     const {
@@ -28,12 +27,10 @@ async function getUser(username, password) {
   if (!username || !password) {
     return;
   }
-  console.log(username , password);
+  console.log(username, password);
 
   try {
     const user = await getUserByUsername(username);
-    console.log("inside getUser()" ,user);
-
     if (!user) return;
     const hashedPassword = user.password;
     console.log(hashedPassword);
@@ -72,7 +69,6 @@ async function getUserById(userId) {
 async function getUserByUsername(userName) {
   // first get the user
   try {
-    
     const { rows } = await client.query(
       `
       SELECT *
@@ -81,13 +77,13 @@ async function getUserByUsername(userName) {
     `,
       [userName]
     );
-    
+
     // if it doesn't exist, return null
     if (!rows || !rows.length) return null;
     // if it does:
     // delete the 'password' key from the returned object
     const [user] = rows;
-   
+
     // delete user.password;
     return user;
   } catch (error) {

@@ -190,6 +190,4 @@ module.exports = {
   deleteAllReviews,
   getReviewsByMovieId,
   getReviewsByUserId
-
-
 };
