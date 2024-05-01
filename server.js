@@ -21,8 +21,8 @@ app.use("/api", require("./api"));
 
 // require('dotenv').config();
 // const express = require('express');
-const server = express();
-const morgan = require("morgan");
+
+
 // const cors = require('cors');
 // const { PORT = 5432 } = process.env;
 

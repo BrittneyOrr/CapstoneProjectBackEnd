@@ -1,4 +1,3 @@
-////THIS IS DEMO CODE! NEED TO REPLACE WITH OUR CODE!!
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
@@ -6,12 +5,10 @@ const {
   createUser,
   getUserByUsername,
   getUser,
-  getUserById,
+  getUserById
 } = require("../db");
 const { requireUser } = require("./utils");
 const { JWT_SECRET } = process.env;
-// const dotenv= require("dotenv");
-
 
 // POST /api/users/register
 // IMPLEMENT THE REGISTER ROUTE
@@ -43,19 +40,15 @@ router.post("/register", async function (request, response, next) {
     console.log("error in register endpoint", error);
     next(error);
   }
+}); // <- Added closing brace here
 
-
-
-// // POST /api/users/login
-// // IMPLEMENT THE LOGIN ROUTE
+// POST /api/users/login
+// IMPLEMENT THE LOGIN ROUTE
 router.post("/login", async function (request, response, next) {
   try {
-   
     const { username, password } = request.body;
-   
 
     const user = await getUser(username, password);
-   
 
     delete user.password;
 
@@ -67,7 +60,6 @@ router.post("/login", async function (request, response, next) {
       JWT_SECRET,
       { expiresIn: "1w" }
     );
-	
 
     response.json({
       message: "Login success~",
@@ -80,7 +72,7 @@ router.post("/login", async function (request, response, next) {
   }
 });
 
-// // GET /api/users/me
+// GET /api/users/me
 router.get("/me", requireUser, async (req, res, next) => {
   try {
     res.send(req.user);
@@ -90,13 +82,13 @@ router.get("/me", requireUser, async (req, res, next) => {
 });
 
 // get user by userId
-router.get('/:userId', async (req, res, next) => {
-	try {
-		const user = await getUserById(req.params.userId);
-		res.send(user);
-	} catch (error) {
-		throw error;
-	}
+router.get("/:userId", async (req, res, next) => {
+  try {
+    const user = await getUserById(req.params.userId);
+    res.send(user);
+  } catch (error) {
+    throw error;
+  }
 });
 
 module.exports = router;
