@@ -15,7 +15,11 @@ dotenv.config();
 // app.use("/api", require("./api"));
 
 
-server.use(cors());
+server.use(cors({
+        origin: "https://capstoneprojectbackend-ywy6.onrender.com"
+    }
+))
+server.options('*', cors())
 
 // logging middleware
 server.use(morgan("dev"));
