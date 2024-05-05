@@ -6,6 +6,7 @@ const {
   getUserByUsername,
   getUser,
   getUserById,
+  getAllUsers,
 } = require("../db");
 const { JWT_SECRET } = process.env;
 const { requireUser } = require("./utils");
@@ -96,6 +97,18 @@ router.get('/:userId', async (req, res, next) => {
 		throw error;
 	}
 });
+
+router.get('/', async (req, res, next) => {
+  try {
+      const movies = await getAllUsers();
+      res.send(movies);
+  } catch (error) {
+      next(error);
+  }
+});
+
+
+
 
 
 module.exports = router;
