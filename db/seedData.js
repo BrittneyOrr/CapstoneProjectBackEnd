@@ -30,7 +30,7 @@ async function createTables() {
     await client.query(`
         CREATE TABLE users (
             id SERIAL PRIMARY KEY,
-            name TEXT,
+            name TEXT NOT NULL,
             username TEXT UNIQUE NOT NULL,
             email TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,

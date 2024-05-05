@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const client = require("./db/client");
 const dotenv = require("dotenv");
-const app = express();
+// const app = express();
 const server = express();
 const morgan = require("morgan");
 const PORT = process.env.PORT || 3000;
@@ -11,10 +11,10 @@ const PORT = process.env.PORT || 3000;
 client.connect();
 dotenv.config();
 
-app.use(cors());
-app.use(express.json());
-// app.get('/', function(req, res){res.send({"jessica" : "jessica"})});
-app.use("/api", require("./api"));
+// app.use(cors());
+// app.use(express.json());
+// // app.get('/', function(req, res){res.send({"jessica" : "jessica"})});
+// app.use("/api", require("./api"));
 
 
 //CHECK SALS DEMO CODE FOR THIS CODE--- DO WE NEED THIS CODE FOR OUR STUFF TO WORK?
@@ -47,7 +47,7 @@ server.get("*", (req, res) => {
 });
 
 // error handling middleware
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on PORT : ${PORT}`);
 });
 
