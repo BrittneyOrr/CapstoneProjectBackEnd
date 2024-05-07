@@ -148,7 +148,7 @@ async function deleteAllReviews() {
 // get reviews by movie id
 async function getReviewsByMovieId(movieId) {
   try {
-    const { rows: [review] } = await client.query(
+    const { rows } = await client.query(
       `
         SELECT *
         FROM reviews
@@ -156,12 +156,12 @@ async function getReviewsByMovieId(movieId) {
         `,
       [movieId]
     );
-    return review;
+    console.log(rows);
+    return rows;
   } catch (error) {
     throw error;
   }
 }
-
 
 //get reviews by userId
 async function getReviewsByUserId(userId) {
