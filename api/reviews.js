@@ -108,7 +108,7 @@ router.get('/movies/:movieId', async (req, res, next) => {
 });
 
 // get reviews by userId
-router.get('/user/:userId', async (req, res, next) => {
+router.get('/users/:userId', async (req, res, next) => {
     try {
         const review = await getReviewsByUserId(req.params.userId);
         res.send(review);
