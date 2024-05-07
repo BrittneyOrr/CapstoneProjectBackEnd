@@ -156,6 +156,7 @@ async function getReviewsByMovieId(movieId) {
         `,
       [movieId]
     );
+    console.log(rows);
     return rows;
   } catch (error) {
     throw error;
