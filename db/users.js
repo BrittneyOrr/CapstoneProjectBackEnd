@@ -94,9 +94,24 @@ async function getUserByUsername(userName) {
     console.error(error);
   }
 }
+
+async function getAllUsers() {
+  try {
+    const { rows } = await client.query(`
+        SELECT *
+        FROM users;
+        `);
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createUser,
   getUser,
   getUserById,
-  getUserByUsername
+  getUserByUsername, 
+  getAllUsers
+
 };

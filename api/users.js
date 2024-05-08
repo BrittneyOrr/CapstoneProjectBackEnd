@@ -6,11 +6,20 @@ const {
   getUserByUsername,
   getUser,
   getUserById,
+  getAllUsers
 } = require("../db");
 const { JWT_SECRET } = process.env;
 const { requireUser } = require("./utils");
 
-
+// GET /api/users - get all users
+router.get('/', async (req, res, next) => {
+	try {
+		const users = await getAllUsers();
+		res.send(users);
+	} catch (error) {
+		next(error);
+	}
+  });
 
 // console.log(JWT_SECRET);
 // POST /api/users/register
