@@ -34,6 +34,7 @@ async function createTables() {
             username TEXT UNIQUE NOT NULL,
             email TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
+            isAdmin BOOLEAN DEFAULT false,
             active BOOLEAN DEFAULT true
           );
         `);
@@ -78,19 +79,29 @@ async function createInitialUsers() {
         name: "al",
         username: "albert",
         email: "john@example.com",
-        password: "burts99"
+        password: "burts99",
+        isAdmin: false
       },
       {
         name: "sally",
         username: "sandra",
         email: "jane@example.com",
-        password: "sassy123"
+        password: "sassy123",
+        isAdmin: false
       },
       {
         name: "felicia",
         username: "glamgal",
         email: "alice@example.com",
-        password: "glamgal123"
+        password: "glamgal123",
+        isAdmin: false
+      },
+      {
+        name: "queen",
+        username: "queen",
+        email: "queen@admin.com",
+        password: "queenadmin",
+        isAdmin: true
       }
     ];
     const users = await Promise.all(usersToCreate.map(createUser));

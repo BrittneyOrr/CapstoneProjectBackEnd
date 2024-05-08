@@ -5,7 +5,7 @@ const SALT_COUNT = 10;
 // // database functions
 
 // // user functions
-async function createUser({ email, username, password }) {
+async function createUser({ email, username, password, isAdmin = false }) {
   
   const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
   try {
@@ -17,7 +17,7 @@ async function createUser({ email, username, password }) {
       ON CONFLICT (username) DO NOTHING 
       RETURNING id, username, email
     `,
-      [email, username, hashedPassword]
+      [email, username, hashedPassword, isAdmin]
     );
     return user;
   } catch (error) {

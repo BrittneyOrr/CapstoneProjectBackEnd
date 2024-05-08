@@ -17,9 +17,9 @@ const { requireUser } = require("./utils");
 // IMPLEMENT THE REGISTER ROUTE
 router.post("/register", async function (request, response, next) {
 	try {
-	  const { username, password, email } = request.body;
+	  const { username, password, email, isAdmin } = request.body;
   
-	  const newUser = await createUser({ email, username, password });
+	  const newUser = await createUser({ email, username, password, isAdmin });
 	  console.log({ newUser, JWT_SECRET });
   
 	  delete newUser.password;
@@ -27,7 +27,8 @@ router.post("/register", async function (request, response, next) {
 	  const token = jwt.sign(
 		{
 		  id: newUser.id,
-		  username: newUser.username
+		  username: newUser.username,
+		  isAdmin: newUser.isAdmin
 		},
 		JWT_SECRET,
 		{ expiresIn: "1w" }
