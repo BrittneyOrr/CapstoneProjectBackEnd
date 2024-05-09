@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllMovies, createNewMovie, getMovieById, updateMovieById, deleteMovieById, deleteAllMovies } = require('../db/movies');
-// const { requireUser } = require('./utils');
+const { isAdmin } = require('./utils');
 
 // GET /api/movies
 router.get('/', async (req, res, next) => {
@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // POST /api/movies
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
     try {
         const movies = await createNewMovie();
         res.send(movies);
@@ -35,7 +35,7 @@ router.get('/:movieId', async (req, res, next) => {
 });
 
 // PATCH /api/movies/:movieId
-router.patch('/:movieId', async (req, res, next) => {
+router.patch('/:movieId', isAdmin, async (req, res, next) => {
     try {
         const movie = await updateMovieById(req.params.movieId, req.body);
         res.send(movie);
@@ -46,7 +46,7 @@ router.patch('/:movieId', async (req, res, next) => {
 
 // DELETE /api/movies/:movieId
 
-router.delete('/:movieId',  async (req, res, next) => {
+router.delete('/:movieId', isAdmin, async (req, res, next) => {
 
     try {
         const movie = await deleteMovieById(req.params.movieId);

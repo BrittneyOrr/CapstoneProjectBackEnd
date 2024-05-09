@@ -9,10 +9,10 @@ const {
   getAllUsers
 } = require("../db");
 const { JWT_SECRET } = process.env;
-const { requireUser } = require("./utils");
+const { isAdmin } = require("./utils");
 
 // GET /api/users - get all users
-router.get('/', async (req, res, next) => {
+router.get('/', isAdmin, async (req, res, next) => {
 	try {
 		const users = await getAllUsers();
 		res.send(users);

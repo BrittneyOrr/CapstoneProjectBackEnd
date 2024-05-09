@@ -1,17 +1,19 @@
 ////THIS IS DEMO CODE! NEED TO REPLACE WITH OUR CODE!!
 const client = require('../db/client');
 
-function requireUser(req, res, next) {
-  if (!req.user) {
-    res.status(401);
-    next({
-      name: "MissingUserError",
-      message: "You must be logged in to perform this action"
-    });
+// Middleware to check if the user is an admin
+const isAdmin = (req, res, next) => {
+  // Check if the user is authenticated and is an admin
+  if (req.user && req.user.isAdmin) {
+      // If the user is an admin, continue with the next middleware or route handler
+      next();
+  } else {
+      // If the user is not an admin, send a response indicating unauthorized access
+      res.status(401).json({ message: 'Unauthorized access. Admin privileges required.' });
   }
+};
 
-  next();
-}
+module.exports = { isAdmin };
 
 // takes required parameters as an array, returns a middleware function that sends back a message if they're not present
 const requiredNotSent = ({ requiredParams, atLeastOne = false }) => {
