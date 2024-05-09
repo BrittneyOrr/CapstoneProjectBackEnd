@@ -4,7 +4,7 @@ const client = require('../db/client');
 // Middleware to check if the user is an admin
 const isAdmin = (req, res, next) => {
   // Check if the user is authenticated and is an admin
-  if (req.user && req.user.isAdmin) {
+  if (req.user.isAdmin) {
       // If the user is an admin, continue with the next middleware or route handler
       next();
   } else {
