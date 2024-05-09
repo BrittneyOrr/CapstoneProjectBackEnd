@@ -26,9 +26,9 @@ router.get('/', isAdmin, async (req, res, next) => {
 // IMPLEMENT THE REGISTER ROUTE
 router.post("/register", async function (request, response, next) {
 	try {
-	  const { username, password, email, isAdmin } = request.body;
+	  const { username, password, email } = request.body;
   
-	  const newUser = await createUser({ email, username, password, isAdmin });
+	  const newUser = await createUser({ email, username, password });
 	  console.log({ newUser, JWT_SECRET });
   
 	  delete newUser.password;
@@ -37,7 +37,6 @@ router.post("/register", async function (request, response, next) {
 		{
 		  id: newUser.id,
 		  username: newUser.username,
-		  isAdmin: newUser.isAdmin
 		},
 		JWT_SECRET,
 		{ expiresIn: "1w" }
@@ -70,14 +69,14 @@ router.post("/login", async function (request, response, next) {
     const token = jwt.sign(
       {
         id: user.id,
-        username: user.username
+        username: user.username,
       },
       JWT_SECRET,
       { expiresIn: "1w" }
     );
 	
 
-    response.json({
+    response.send({
       message: "Login success~",
       user,
       token
