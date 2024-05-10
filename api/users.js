@@ -60,7 +60,7 @@ router.post("/login", async function (request, response, next) {
     const { username, password } = request.body;
    
 
-    const user = await getUser(username, password, isAdmin);
+    const user = await getUser(username, password);
    
 
     delete user.password;
