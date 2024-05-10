@@ -9,10 +9,9 @@ const {
   getAllUsers
 } = require("../db");
 const { JWT_SECRET } = process.env;
-const { isAdmin } = require("./utils");
 
 // GET /api/users - get all users
-router.get('/', isAdmin, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
 	try {
 		const users = await getAllUsers();
 		res.send(users);
@@ -61,7 +60,7 @@ router.post("/login", async function (request, response, next) {
     const { username, password } = request.body;
    
 
-    const user = await getUser(username, password);
+    const user = await getUser(username, password, isAdmin);
    
 
     delete user.password;
@@ -70,6 +69,7 @@ router.post("/login", async function (request, response, next) {
       {
         id: user.id,
         username: user.username,
+		isAdmin: user.isAdmin,
       },
       JWT_SECRET,
       { expiresIn: "1w" }

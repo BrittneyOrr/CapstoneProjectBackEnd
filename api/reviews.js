@@ -4,13 +4,12 @@ const router = express.Router();
 const { getAllReviews, getReviewById, updateReviewById, deleteReviewById, deleteAllReviews, createReview } = require('../db/reviews');
 const { getMovieById } = require('../db/movies');
 const { getReviewsByMovieId, getReviewsByUserId } = require('../db/reviews');
-const { isAdmin } = require('./utils');
-        
+
     // NOT SURE IF WE NEED THIS NEXT LINE FOR OUR CODE...CHECK ON THIS LINE
-const { requireUser } = require('./utils');
+// const { requireUser } = require('./utils');
 
 // GET /api/reviews - get all reviews THIS ENDPOINT WORKS! 4/23
-router.get('/', isAdmin, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const reviews = await getAllReviews();
         res.send(reviews);
