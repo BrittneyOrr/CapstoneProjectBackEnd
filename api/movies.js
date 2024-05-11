@@ -1,4 +1,5 @@
 ////I replaced this code!! Check it out!!
+// movies.js in api folder
 const express = require('express');
 const router = express.Router();
 const { getAllMovies, createMovie, getMovieById, updateMovieById, deleteMovieById, deleteAllMovies } = require('../db/movies');
@@ -16,8 +17,9 @@ router.get('/', async (req, res, next) => {
 // POST /api/movies
 router.post('/', async (req, res, next) => {
     try {
-        const movies = await createMovie();
-        res.send(movies);
+        const { title, category, release_date, poster_url, plot } = req.body;
+        const movie = await createMovie({ title, category, release_date, poster_url, plot });
+        res.send(movie);
     } catch (error) {
         next(error);
     }
