@@ -1,7 +1,7 @@
 ////I replaced this code!! Check it out!!
 const express = require('express');
 const router = express.Router();
-const { getAllMovies, createNewMovie, getMovieById, updateMovieById, deleteMovieById, deleteAllMovies } = require('../db/movies');
+const { getAllMovies, createMovie, getMovieById, updateMovieById, deleteMovieById, deleteAllMovies } = require('../db/movies');
 
 // GET /api/movies
 router.get('/', async (req, res, next) => {
@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 // POST /api/movies
 router.post('/', async (req, res, next) => {
     try {
-        const movies = await createNewMovie();
+        const movies = await createMovie();
         res.send(movies);
     } catch (error) {
         next(error);
