@@ -1,3 +1,4 @@
+// movies.js in db folder
 const client = require("./client");
 const util = require("util");
 
