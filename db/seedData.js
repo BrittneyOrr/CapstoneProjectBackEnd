@@ -331,6 +331,341 @@ async function createInitialReviews() {
         comment: "Decent movie, could have been better.",
         review_date: "2021-01-03"
       }
+      {
+        movie_id: 1,
+        user_id: 1,
+        rating: 4,
+        comment: "Solid performance by the cast. Enjoyed every minute of it.",
+        review_date: "2021-01-01"
+      },
+    
+      {
+        movie_id: 1,
+        user_id: 2,
+        rating: 5,
+        comment: "A classic! Will definitely watch it again.",
+        review_date: "2021-01-02"
+      },
+    
+      {
+        movie_id: 1,
+        user_id: 3,
+        rating: 3,
+        comment: "Good, but I expected more from the ending.",
+        review_date: "2021-01-03"
+      },
+    
+      {
+        movie_id: 2,
+        user_id: 1,
+        rating: 5,
+        comment: "Absolutely breathtaking! Couldn't take my eyes off the screen.",
+        review_date: "2021-01-04"
+      },
+    
+      {
+        movie_id: 2,
+        user_id: 2,
+        rating: 4,
+        comment: "A rollercoaster of emotions. Brilliantly executed.",
+        review_date: "2021-01-05"
+      },
+    
+      {
+        movie_id: 2,
+        user_id: 3,
+        rating: 5,
+        comment: "Masterpiece! Every frame is a work of art.",
+        review_date: "2021-01-06"
+      },
+    
+    {
+        movie_id: 4,
+        user_id: 2,
+        rating: 4,
+        comment: "Absolutely thrilling! Keeps you on the edge of your seat.",
+        review_date: "2021-01-04"
+      },
+    
+      {
+        movie_id: 5,
+        user_id: 3,
+        rating: 5,
+        comment: "A masterpiece of cinema! Every scene is beautifully crafted.",
+        review_date: "2021-01-05"
+      },
+    
+      {
+        movie_id: 6,
+        user_id: 1,
+        rating: 3,
+        comment: "Interesting concept but fell short in execution.",
+        review_date: "2021-01-06"
+      },
+    
+      {
+        movie_id: 7,
+        user_id: 2,
+        rating: 4,
+        comment: "Captivating storyline with unexpected twists.",
+        review_date: "2021-01-07"
+      },
+    
+      {
+        movie_id: 8,
+        user_id: 3,
+        rating: 5,
+        comment: "A true gem of a movie! Deserves all the accolades.",
+        review_date: "2021-01-08"
+      },
+    
+      {
+        movie_id: 9,
+        user_id: 1,
+        rating: 3,
+        comment: "Interesting characters but lacked depth in plot.",
+        review_date: "2021-01-09"
+      },
+    
+      {
+        movie_id: 3,
+        user_id: 1,
+        rating: 4,
+        comment: "Great action sequences! Kept me on the edge of my seat.",
+        review_date: "2021-01-07"
+      },
+    
+      {
+        movie_id: 3,
+        user_id: 2,
+        rating: 3,
+        comment:"Decent plot, but the pacing felt a bit off.",
+        review_date:"2021-01-08"
+      },
+    
+      {
+        movie_id: 3,
+        user_id: 3,
+        rating: 4,
+        comment:"Solid performances by the lead actors. Enjoyed it overall.",
+        review_date:"2021-01-09"
+      },
+    
+      {
+        movie_id: 4,
+        user_id: 1,
+        rating: 5,
+        comment:"Incredible visual effects! A must-watch for sci-fi fans.",
+        review_date:"2021-01-10"
+      },
+    
+      {
+        movie_id: 4,
+        user_id: 2,
+        rating: 4,
+        comment:"Fascinating storyline. Captivating from start to finish.",
+        review_date:"2021-01-11"
+      },
+    
+      {
+        movie_id: 4,
+        user_id: 3,
+        rating: 5,
+        comment:"Mind-bending plot twists! Couldn't predict what would happen next.",
+        review_date:"2021-01-12"
+      },
+    
+    {
+        movie_id: 5,
+        user_id: 1,
+        rating: 3,
+        comment:"Interesting concept, but the execution fell short.",
+        review_date:"2021-01-13"
+      },
+    
+      {
+        movie_id: 5,
+        user_id: 2,
+        rating: 4,
+        comment:"Solid performances by the cast. Enjoyed it overall.",
+        review_date:"2021-01-14"
+      },
+    
+      {
+        movie_id: 5,
+        user_id: 3,
+        rating: 3,
+        comment:"Average plot, but the visuals were stunning.",
+        review_date:"2021-01-15"
+      },
+    
+    {
+        movie_id: 6,
+        user_id: 1,
+        rating: 4,
+        comment:"Suspenseful storyline. Kept me guessing till the end.",
+        review_date:"2021-01-16"
+      },
+    
+      {
+        movie_id: 6,
+        user_id: 2,
+        rating: 5,
+        comment:"Absolutely loved it! Gripping from start to finish.",
+        review_date:"2021-01-17"
+      },
+    
+      {
+        movie_id: 6,
+        user_id: 3,
+        rating: 4,
+        comment:"Great character development. Each role was well-defined.",
+        review_date:"2021-01-18"
+      },
+    
+    {
+        movie_id: 7,
+        user_id: 1,
+        rating: 4,
+        comment:"A heartwarming story that leaves a lasting impact.",
+        review_date:"2021-01-19"
+      },
+    
+      {
+        movie_id: 7,
+        user_id: 2,
+        rating: 3,
+        comment:"Enjoyable, but a bit predictable.",
+        review_date:"2021-01-20"
+      },
+    
+      {
+        movie_id: 7,
+        user_id: 3,
+        rating: 5,
+        comment:"Absolutely beautiful! Brought tears to my eyes.",
+        review_date:"2021-01-21"
+      },
+    
+      {
+        movie_id: 8,
+        user_id: 1,
+        rating: 3,
+        comment:"Interesting premise, but lacked depth.",
+        review_date:"2021-01-22"
+      },
+    
+      {
+        movie_id: 8,
+        user_id: 2,
+        rating: 4,
+        comment:"Solid performances, especially from the lead actor.",
+        review_date:"2021-01-23"
+      },
+    
+      {
+        movie_id: 8,
+        user_id: 3,
+        rating: 3,
+        comment:"Decent watch, but forgettable.",
+        review_date:"2021-01-24"
+      },
+    
+    {
+        movie_id: 13,
+        user_id: 1,
+        rating: 4,
+        comment:"Captivating storyline, kept me on the edge of my seat.",
+        review_date:"2021-02-01"
+      },
+    
+      {
+        movie_id: 13,
+        user_id: 2,
+        rating: 5,
+        comment:"A masterpiece! Brilliantly crafted.",
+        review_date:"2021-02-02"
+      },
+    
+      {
+        movie_id: 13,
+        user_id: 3,
+        rating: 4,
+        comment:"Great performances from the cast, especially the lead actress.",
+        review_date:"2021-02-03"
+      },
+      
+      {
+        movie_id: 14,
+        user_id: 1,
+        rating: 3,
+        comment:"Interesting concept, but execution fell short.",
+        review_date:"2021-02-04"
+      },
+    
+      {
+        movie_id: 14,
+        user_id: 2,
+        rating: 2,
+        comment:"Disappointing. Expected more from the director.",
+        review_date:"2021-02-05"
+      },
+    
+      {
+        movie_id: 14,
+        user_id: 3,
+        rating: 3,
+        comment:"Average movie. Nothing special.",
+        review_date:"2021-02-06"
+      },
+    
+    {
+        movie_id: 15,
+        user_id: 1,
+        rating: 4,
+        comment:"Intriguing plot with unexpected twists.",
+        review_date:"2021-02-07"
+      },
+    
+      {
+        movie_id: 15,
+        user_id: 2,
+        rating: 5,
+        comment:"Absolutely loved it! Kept me guessing until the end.",
+        review_date:"2021-02-08"
+      },
+    
+      {
+        movie_id: 15,
+        user_id: 3,
+        rating: 4,
+        comment:"Solid performances by the entire cast.",
+        review_date:"2021-02-09"
+      },
+      
+      {
+        movie_id: 16,
+        user_id: 1,
+        rating: 3,
+        comment:"Decent movie, but the pacing was a bit slow.",
+        review_date:"2021-02-10"
+      },
+    
+      {
+        movie_id: 16,
+        user_id: 2,
+        rating: 4,
+        comment:"Enjoyable watch with some memorable scenes.",
+        review_date:"2021-02-11"
+      },
+    
+      {
+        movie_id: 16,
+        user_id: 3,
+        rating: 3,
+        comment: "Not bad, but did not leave a lasting impression.",
+        review_date: "2021-02-12"
+      }
     ];
     const reviews = await Promise.all(
       reviewsToCreate.map((review) => {
