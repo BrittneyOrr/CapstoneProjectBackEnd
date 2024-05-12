@@ -10,25 +10,25 @@ const PORT = process.env.PORT || 3000;
 client.connect();
 dotenv.config();
 
-// app.use(cors());
+server.use(cors());
 // app.use(express.json());
 // app.use("/api", require("./api"));
 
 
-server.use(cors({
-        origin: "https://capstoneprojectbackend-ywy6.onrender.com"
-    }
-))
-server.options('*', cors())
+// server.use(cors({
+//         origin: "http://localhost:5173"
+//     }
+// ))
+// server.options('*', cors())
 
-// Add headers before the routes are defined
-server.use(function (req, res, next) {
+// // Add headers before the routes are defined
+// server.use(function (req, res, next) {
 
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'https://capstoneprojectbackend-ywy6.onrender.com');
+//   // Website you wish to allow to connect
+//   res.setHeader('Access-Control-Allow-Origin', 'https://capstoneprojectbackend-ywy6.onrender.com');
 
-  // Request methods you wish to allow
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//   // Request methods you wish to allow
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   // Request headers you wish to allow
   // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -38,8 +38,8 @@ server.use(function (req, res, next) {
   // res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
-  next();
-});
+//   next();
+// });
 
 // logging middleware
 server.use(morgan("dev"));
