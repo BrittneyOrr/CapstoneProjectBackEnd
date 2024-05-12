@@ -10,15 +10,15 @@ const PORT = process.env.PORT || 3000;
 client.connect();
 dotenv.config();
 
-server.use(cors());
+// server.use(cors());
 // app.use(express.json());
 // app.use("/api", require("./api"));
 
 
-// server.use(cors({
-//         origin: "http://localhost:5173"
-//     }
-// ))
+server.use(cors({
+        origin: "https://capstoneprojectbackend-ywy6.onrender.com"
+    }
+))
 // server.options('*', cors())
 
 // // Add headers before the routes are defined
