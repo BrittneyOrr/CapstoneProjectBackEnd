@@ -14,9 +14,12 @@ dotenv.config();
 // app.use(express.json());
 // app.use("/api", require("./api"));
 
-server.use(cors());
+server.use(cors({
+          origin: "https://6642b56bb6e8721ac618194e--sprightly-sorbet-8f6ed8.netlify.app/"
+      }
+  ));
 // server.use(cors({
-//         origin: "https://capstoneprojectbackend-ywy6.onrender.com"
+//         origin: "https://6642b56bb6e8721ac618194e--sprightly-sorbet-8f6ed8.netlify.app/"
 //     }
 // ))
 // server.options('*', cors())
